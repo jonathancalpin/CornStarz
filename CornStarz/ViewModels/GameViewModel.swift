@@ -2,11 +2,12 @@ import SwiftUI
 import Combine
 
 enum ThrowPhase {
-    case placement
-    case ready
-    case recording
-    case inFlight
-    case scored
+    case placement    // scanning & placing the board
+    case walkBack     // board placed, walk to throwing position
+    case ready        // at throwing position, ready to throw
+    case recording    // 2-second capture in progress
+    case inFlight     // projectile launched
+    case scored       // result displayed
 }
 
 class GameViewModel: ObservableObject {
@@ -14,12 +15,12 @@ class GameViewModel: ObservableObject {
     @Published var throwPhase: ThrowPhase = .placement
     @Published var lastThrowScore: Int?
     @Published var throwLog: String = ""
+    @Published var targetDistanceMeters: Float = 8.2
 
     let motionService = MotionCaptureService()
     let throwAnalyzer = ThrowAnalyzer()
     let hapticsService = HapticsService()
     let arSessionManager = ARSessionManager()
-    let placementManager = TargetPlacementManager()
     let collisionHandler = CollisionHandler()
 
     private var cancellables = Set<AnyCancellable>()
@@ -30,10 +31,18 @@ class GameViewModel: ObservableObject {
         gameState.reset()
         hapticsService.prepare()
         throwPhase = .placement
+
+        switch mode {
+        case .cornhole:
+            targetDistanceMeters = 8.2
+        case .horseshoe:
+            targetDistanceMeters = 12.2
+        }
     }
 
     // MARK: - Target Placement
 
+    /// Tap to place the board on a detected surface, then walk back
     func handleTap(at point: CGPoint) {
         guard throwPhase == .placement, !arSessionManager.isTargetPlaced else { return }
 
@@ -43,7 +52,10 @@ class GameViewModel: ObservableObject {
             alignment: .horizontal
         )
 
-        guard let firstResult = results.first else { return }
+        guard let firstResult = results.first else {
+            throwLog = "No surface detected. Tap the floor."
+            return
+        }
 
         let worldPosition = SIMD3<Float>(
             firstResult.worldTransform.columns.3.x,
@@ -60,8 +72,14 @@ class GameViewModel: ObservableObject {
             }
         }
 
+        throwPhase = .walkBack
+        throwLog = "Board placed! Walk back to your throwing position."
+    }
+
+    /// User is at desired distance, ready to throw
+    func confirmPosition() {
         throwPhase = .ready
-        throwLog = "Target placed! Tap Ready to Throw."
+        throwLog = String(format: "Throwing from %.1fm. Tap Ready to Throw!", arSessionManager.targetDistance)
     }
 
     // MARK: - Throw Lifecycle
@@ -69,7 +87,6 @@ class GameViewModel: ObservableObject {
     func beginThrow() {
         guard throwPhase == .ready else { return }
 
-        // Restart capture for clean buffer
         _ = motionService.stopCapture()
         motionService.startCapture()
 
@@ -105,11 +122,10 @@ class GameViewModel: ObservableObject {
                           release.speed,
                           release.angle * 180.0 / .pi)
 
-        // Auto-transition to scored after flight time
         DispatchQueue.main.asyncAfter(deadline: .now() + 3.0) { [weak self] in
             guard let self = self, self.throwPhase == .inFlight else { return }
             if self.lastThrowScore == nil {
-                self.handleScore(0) // miss if no collision detected
+                self.handleScore(0)
             }
         }
     }
@@ -133,6 +149,6 @@ class GameViewModel: ObservableObject {
     func resetForNextThrow() {
         lastThrowScore = nil
         throwPhase = .ready
-        throwLog = "Ready for next throw."
+        throwLog = String(format: "Distance: %.1fm. Ready for next throw.", arSessionManager.targetDistance)
     }
 }

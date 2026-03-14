@@ -33,8 +33,58 @@ class ARSessionManager: NSObject, ObservableObject {
         arView.addSubview(coachingOverlay)
     }
 
+    /// Auto-place target at a given distance in front of the camera on a detected plane
+    func placeTargetAtDistance(_ meters: Float, gameMode: GameMode) {
+        guard let frame = arView.session.currentFrame else { return }
+
+        let cameraTransform = frame.camera.transform
+        let cameraPos = SIMD3<Float>(
+            cameraTransform.columns.3.x,
+            cameraTransform.columns.3.y,
+            cameraTransform.columns.3.z
+        )
+
+        // Forward direction (horizontal only, ignore camera tilt)
+        let rawForward = SIMD3<Float>(
+            -cameraTransform.columns.2.x,
+            0,
+            -cameraTransform.columns.2.z
+        )
+        let forward = simd_normalize(rawForward)
+
+        // Place target at distance in front, at the camera's Y level (ground estimate)
+        // Use the lowest detected plane Y if available, otherwise camera Y - 1.2m (rough floor)
+        let floorY: Float
+        if let lowestPlane = planeAnchors.min(by: { $0.transform.columns.3.y < $1.transform.columns.3.y }) {
+            floorY = lowestPlane.transform.columns.3.y
+        } else {
+            floorY = cameraPos.y - 1.2
+        }
+
+        let targetPos = SIMD3<Float>(
+            cameraPos.x + forward.x * meters,
+            floorY,
+            cameraPos.z + forward.z * meters
+        )
+
+        placeTarget(at: targetPos, gameMode: gameMode)
+    }
+
     func placeTarget(at worldPosition: SIMD3<Float>, gameMode: GameMode) {
         let anchor = AnchorEntity(world: worldPosition)
+
+        // Orient board to face the camera
+        if let cameraTransform = arView.session.currentFrame?.camera.transform {
+            let cameraPos = SIMD3<Float>(
+                cameraTransform.columns.3.x,
+                0,
+                cameraTransform.columns.3.z
+            )
+            let targetPos2D = SIMD3<Float>(worldPosition.x, 0, worldPosition.z)
+            let dir = simd_normalize(cameraPos - targetPos2D)
+            let yaw = atan2(dir.x, dir.z)
+            anchor.transform.rotation = simd_quatf(angle: yaw, axis: SIMD3<Float>(0, 1, 0))
+        }
 
         switch gameMode {
         case .horseshoe:

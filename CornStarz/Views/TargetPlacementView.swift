@@ -7,23 +7,18 @@ struct TargetPlacementView: View {
 
     var body: some View {
         ZStack {
-            // AR Camera feed
             ARGameView(
                 arSessionManager: gameViewModel.arSessionManager,
                 onTap: { point in
                     gameViewModel.handleTap(at: point)
-                }
+                },
+                tapEnabled: gameViewModel.throwPhase == .placement
             )
             .ignoresSafeArea()
 
-            // HUD Overlay
             VStack {
-                // Top bar
                 topBar
-
                 Spacer()
-
-                // Bottom controls
                 bottomControls
             }
             .padding()
@@ -39,11 +34,11 @@ struct TargetPlacementView: View {
     private var topBar: some View {
         HStack {
             VStack(alignment: .leading, spacing: 4) {
-                Text("Planes: \(gameViewModel.arSessionManager.planesDetected)")
-                    .font(.caption.monospacedDigit())
-
                 if gameViewModel.arSessionManager.isTargetPlaced {
                     Text(String(format: "Distance: %.1fm", gameViewModel.arSessionManager.targetDistance))
+                        .font(.title3.monospacedDigit().bold())
+                } else {
+                    Text("Planes: \(gameViewModel.arSessionManager.planesDetected)")
                         .font(.caption.monospacedDigit())
                 }
             }
@@ -53,7 +48,6 @@ struct TargetPlacementView: View {
 
             Spacer()
 
-            // Close button
             Button {
                 dismiss()
             } label: {
@@ -68,7 +62,6 @@ struct TargetPlacementView: View {
 
     private var bottomControls: some View {
         VStack(spacing: 12) {
-            // Console log
             if !gameViewModel.throwLog.isEmpty {
                 Text(gameViewModel.throwLog)
                     .font(.system(.callout, design: .monospaced).bold())
@@ -78,10 +71,38 @@ struct TargetPlacementView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 10))
             }
 
-            // Phase-specific controls
             switch gameViewModel.throwPhase {
             case .placement:
-                promptCapsule("Tap a surface to place the \(gameMode.rawValue) target")
+                if gameViewModel.arSessionManager.planesDetected > 0 {
+                    promptCapsule("Tap the ground to place the \(gameMode.rawValue) board")
+                } else {
+                    promptCapsule("Point camera at the floor to scan")
+                }
+
+            case .walkBack:
+                VStack(spacing: 12) {
+                    Text(String(format: "%.1fm away", gameViewModel.arSessionManager.targetDistance))
+                        .font(.system(size: 36, weight: .bold).monospacedDigit())
+                        .foregroundStyle(.white)
+
+                    Text("Walk back to your throwing position")
+                        .font(.callout)
+                        .foregroundStyle(.white.opacity(0.8))
+
+                    Button {
+                        gameViewModel.confirmPosition()
+                    } label: {
+                        Label("I'm Ready Here", systemImage: "checkmark.circle.fill")
+                            .font(.title3.bold())
+                            .frame(maxWidth: .infinity)
+                            .padding()
+                    }
+                    .buttonStyle(.borderedProminent)
+                    .tint(.green)
+                }
+                .padding()
+                .background(.ultraThinMaterial)
+                .clipShape(RoundedRectangle(cornerRadius: 12))
 
             case .ready:
                 Button {
@@ -100,7 +121,6 @@ struct TargetPlacementView: View {
                     Text("SWING NOW!")
                         .font(.title.bold())
                         .foregroundStyle(.orange)
-
                     ProgressView()
                         .tint(.orange)
                 }
