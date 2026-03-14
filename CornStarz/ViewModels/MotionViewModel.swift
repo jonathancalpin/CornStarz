@@ -28,6 +28,15 @@ class MotionViewModel: ObservableObject {
     @Published var recordedThrowData: ExportableThrowData?
     @Published var consoleLog: String = "Ready. Tap Start Monitoring to begin."
 
+    // Throw labeling
+    @Published var selectedIntensity: String = "medium"
+    @Published var selectedDirection: String = "straight"
+    @Published var selectedSpin: String = "none"
+
+    // Session log
+    @Published var sessionThrows: [ExportableThrowData] = []
+    private var throwCounter = 0
+
     let motionService: MotionCaptureService
     private let throwAnalyzer = ThrowAnalyzer()
     private var cancellables = Set<AnyCancellable>()
@@ -143,16 +152,28 @@ class MotionViewModel: ObservableObject {
 
         let releaseVector = throwAnalyzer.analyze(motionData: motionData)
 
-        let exportData = ExportableThrowData(
+        throwCounter += 1
+
+        let label = ThrowLabel(
+            intensity: selectedIntensity,
+            direction: selectedDirection,
+            spin: selectedSpin,
+            throwNumber: throwCounter
+        )
+
+        var exportData = ExportableThrowData(
             from: motionData,
             analysis: releaseVector,
             startTime: recordingStartTime ?? endTime,
-            endTime: endTime
+            endTime: endTime,
+            label: label
         )
+        _ = exportData // silence mutation warning
         recordedThrowData = exportData
+        sessionThrows.append(exportData)
 
         // Build console output
-        var log = "--- Throw Analysis ---\n"
+        var log = "--- Throw #\(throwCounter) [\(selectedIntensity)/\(selectedDirection)/\(selectedSpin)] ---\n"
         log += "Samples captured: \(motionData.count)\n"
         log += "Duration: \(String(format: "%.2f", endTime.timeIntervalSince(recordingStartTime ?? endTime)))s\n"
 
@@ -165,6 +186,7 @@ class MotionViewModel: ObservableObject {
             log += "No throw detected (below threshold or too few samples)\n"
         }
 
+        log += "Session total: \(sessionThrows.count) throws\n"
         consoleLog = log
         print(log)
 
@@ -178,5 +200,16 @@ class MotionViewModel: ObservableObject {
         encoder.dateEncodingStrategy = .iso8601
         encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
         return try? encoder.encode(throwData)
+    }
+
+    func buildSession() -> ThrowSession {
+        ThrowSession(sessionDate: Date(), recordings: sessionThrows)
+    }
+
+    func clearSession() {
+        sessionThrows.removeAll()
+        throwCounter = 0
+        recordedThrowData = nil
+        consoleLog = "Session cleared. Ready for new test set."
     }
 }

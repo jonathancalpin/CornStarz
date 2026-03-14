@@ -27,6 +27,9 @@ struct SensorPlaygroundView: View {
 
                 Divider()
 
+                // MARK: - Throw Label
+                throwLabelSection
+
                 // MARK: - Controls
                 controlsSection
 
@@ -36,6 +39,11 @@ struct SensorPlaygroundView: View {
                 // MARK: - Export
                 if viewModel.recordedThrowData != nil {
                     exportSection
+                }
+
+                // MARK: - Session Log
+                if !viewModel.sessionThrows.isEmpty {
+                    sessionSection
                 }
             }
             .padding()
@@ -122,6 +130,54 @@ struct SensorPlaygroundView: View {
 
     private var magnitudeGradient: Gradient {
         Gradient(colors: [.green, .yellow, .orange, .red])
+    }
+
+    // MARK: - Throw Label
+
+    private var throwLabelSection: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            Text("Throw Label")
+                .font(.headline)
+
+            HStack {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Intensity").font(.caption2).foregroundStyle(.secondary)
+                    Picker("Intensity", selection: $viewModel.selectedIntensity) {
+                        Text("Soft").tag("soft")
+                        Text("Medium").tag("medium")
+                        Text("Hard").tag("hard")
+                    }
+                    .pickerStyle(.segmented)
+                }
+            }
+
+            HStack {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Direction").font(.caption2).foregroundStyle(.secondary)
+                    Picker("Direction", selection: $viewModel.selectedDirection) {
+                        Text("Left").tag("left")
+                        Text("Straight").tag("straight")
+                        Text("Right").tag("right")
+                    }
+                    .pickerStyle(.segmented)
+                }
+            }
+
+            HStack {
+                VStack(alignment: .leading, spacing: 4) {
+                    Text("Spin").font(.caption2).foregroundStyle(.secondary)
+                    Picker("Spin", selection: $viewModel.selectedSpin) {
+                        Text("None").tag("none")
+                        Text("Top").tag("topspin")
+                        Text("Side").tag("sidespin")
+                    }
+                    .pickerStyle(.segmented)
+                }
+            }
+        }
+        .padding()
+        .background(.ultraThinMaterial)
+        .clipShape(RoundedRectangle(cornerRadius: 12))
     }
 
     // MARK: - Controls
@@ -228,6 +284,82 @@ struct SensorPlaygroundView: View {
         .padding()
         .background(.ultraThinMaterial)
         .clipShape(RoundedRectangle(cornerRadius: 12))
+    }
+
+    // MARK: - Session Log
+
+    private var sessionSection: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            HStack {
+                Text("Session Log (\(viewModel.sessionThrows.count) throws)")
+                    .font(.headline)
+                Spacer()
+                Button("Clear") {
+                    viewModel.clearSession()
+                }
+                .font(.caption)
+                .tint(.red)
+            }
+
+            // Summary table
+            ForEach(Array(viewModel.sessionThrows.enumerated()), id: \.offset) { index, throwData in
+                HStack {
+                    if let label = throwData.label {
+                        Text("#\(label.throwNumber)")
+                            .font(.caption.monospacedDigit().bold())
+                            .frame(width: 30, alignment: .leading)
+                        Text(label.intensity)
+                            .font(.caption2)
+                            .padding(.horizontal, 4)
+                            .padding(.vertical, 2)
+                            .background(intensityColor(label.intensity).opacity(0.2))
+                            .clipShape(Capsule())
+                        Text(label.direction)
+                            .font(.caption2)
+                        if label.spin != "none" {
+                            Text(label.spin)
+                                .font(.caption2)
+                                .foregroundStyle(.purple)
+                        }
+                    }
+                    Spacer()
+                    if let analysis = throwData.analysis {
+                        Text("\(String(format: "%.1f", analysis.peakAccelerationMagnitude))g")
+                            .font(.caption.monospacedDigit())
+                        Text("\(String(format: "%.0f", analysis.estimatedReleaseAngleDegrees))°")
+                            .font(.caption.monospacedDigit())
+                        Text("\(String(format: "%.1f", analysis.estimatedSpeed))m/s")
+                            .font(.caption.monospacedDigit())
+                    } else {
+                        Text("No throw detected")
+                            .font(.caption2)
+                            .foregroundStyle(.secondary)
+                    }
+                }
+            }
+
+            ShareLink(
+                item: viewModel.buildSession(),
+                preview: SharePreview("CornStarz Session — \(viewModel.sessionThrows.count) throws")
+            ) {
+                Label("Export Full Session", systemImage: "square.and.arrow.up")
+                    .frame(maxWidth: .infinity)
+            }
+            .buttonStyle(.borderedProminent)
+            .tint(.indigo)
+        }
+        .padding()
+        .background(.ultraThinMaterial)
+        .clipShape(RoundedRectangle(cornerRadius: 12))
+    }
+
+    private func intensityColor(_ intensity: String) -> Color {
+        switch intensity {
+        case "soft": return .green
+        case "medium": return .orange
+        case "hard": return .red
+        default: return .gray
+        }
     }
 }
 

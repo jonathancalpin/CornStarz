@@ -21,6 +21,13 @@ struct ExportableMotionSample: Codable, Identifiable {
     }
 }
 
+struct ThrowLabel: Codable {
+    let intensity: String    // soft, medium, hard
+    let direction: String    // straight, left, right
+    let spin: String         // none, topspin, sidespin
+    let throwNumber: Int
+}
+
 struct ThrowAnalysisResult: Codable {
     let peakAccelerationMagnitude: Double
     let estimatedReleaseAngleDegrees: Double
@@ -34,8 +41,9 @@ struct ExportableThrowData: Codable {
     let sampleRate: Double
     let samples: [ExportableMotionSample]
     let analysis: ThrowAnalysisResult?
+    var label: ThrowLabel?
 
-    init(from motionData: [CMDeviceMotion], analysis: ReleaseVector?, startTime: Date, endTime: Date) {
+    init(from motionData: [CMDeviceMotion], analysis: ReleaseVector?, startTime: Date, endTime: Date, label: ThrowLabel? = nil) {
         self.startTime = startTime
         self.endTime = endTime
         self.sampleRate = 100.0
@@ -56,6 +64,8 @@ struct ExportableThrowData: Codable {
                 yaw: motion.attitude.yaw
             )
         }
+
+        self.label = label
 
         if let release = analysis {
             let peakMag = motionData.map { m in
@@ -90,6 +100,20 @@ extension ExportableThrowData: Transferable {
             encoder.dateEncodingStrategy = .iso8601
             encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
             return try encoder.encode(throwData)
+        }
+    }
+}
+
+struct ThrowSession: Codable, Transferable {
+    let sessionDate: Date
+    let recordings: [ExportableThrowData]
+
+    static var transferRepresentation: some TransferRepresentation {
+        DataRepresentation(exportedContentType: .json) { session in
+            let encoder = JSONEncoder()
+            encoder.dateEncodingStrategy = .iso8601
+            encoder.outputFormatting = [.prettyPrinted, .sortedKeys]
+            return try encoder.encode(session)
         }
     }
 }

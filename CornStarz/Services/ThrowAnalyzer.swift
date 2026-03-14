@@ -18,11 +18,15 @@ struct ReleaseVector {
 class ThrowAnalyzer {
 
     struct Config {
-        var speedScaleFactor: Double = 2.5
-        var angleOffsetDegrees: Double = 0.0
+        var speedScaleFactor: Double = 2.2
+        var maxSpeed: Double = 14.0
+        var minAngleDegrees: Double = 15.0      // floor so gentle throws still arc
+        var maxAngleDegrees: Double = 55.0       // cap to prevent moonshots
+        var angleOffsetDegrees: Double = -20.0   // compensate for phone pitch at release
         var minThrowAcceleration: Double = 1.5
         var releaseDetectionThreshold: Double = 0.3
         var spinScaleFactor: Double = 1.0
+        var lateralScaleFactor: Double = 0.3     // increased from 0.1 for direction sensitivity
     }
 
     var config = Config()
@@ -56,10 +60,18 @@ class ThrowAnalyzer {
 
         let releaseMotion = motionData[releaseIndex]
 
-        let speed = peakAcceleration * config.speedScaleFactor
-        let angle = releaseMotion.attitude.pitch + (config.angleOffsetDegrees * .pi / 180.0)
+        // Speed: scale from acceleration, cap at max
+        let rawSpeed = peakAcceleration * config.speedScaleFactor
+        let speed = min(rawSpeed, config.maxSpeed)
+
+        // Angle: apply offset, then clamp to playable range
+        let rawAngle = releaseMotion.attitude.pitch + (config.angleOffsetDegrees * .pi / 180.0)
+        let rawAngleDeg = rawAngle * 180.0 / .pi
+        let clampedAngleDeg = min(max(rawAngleDeg, config.minAngleDegrees), config.maxAngleDegrees)
+        let angle = clampedAngleDeg * .pi / 180.0
+
         let spin = releaseMotion.rotationRate.x * config.spinScaleFactor
-        let lateralOffset = releaseMotion.rotationRate.y * 0.1
+        let lateralOffset = releaseMotion.rotationRate.y * config.lateralScaleFactor
 
         return ReleaseVector(
             speed: speed,
