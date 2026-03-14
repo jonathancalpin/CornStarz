@@ -24,7 +24,10 @@
 		6619B7C53F9B4B50A1BF539F /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9868BED7CA681886FBD7EF /* AppCoordinator.swift */; };
 		66A2D8AC405A8AB321D5B920 /* ProjectileEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61E5EEE75D1C5B13EAEE497 /* ProjectileEntity.swift */; };
 		7B152D06427356B9FF66DB22 /* TrajectoryCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E1BB1DD22455312E9050D /* TrajectoryCalculatorTests.swift */; };
+		7DB5E43B3028A51CEFA10F5D /* TrajectorySceneView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 01E6CBB7412465806ECE8712 /* TrajectorySceneView.swift */; };
 		88E649CA4132DCC4C7D9AABF /* ScoringRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719BE46AAD4A6F563173E467 /* ScoringRules.swift */; };
+		88EB8FD5687F9082DEF4F2B1 /* TrajectoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 64EC29A7AC939F282720ED2C /* TrajectoryViewModel.swift */; };
+		90E59A52907D4623DECF4C90 /* TrajectoryPlaygroundView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 53BAC2F650DC88ED1450A721 /* TrajectoryPlaygroundView.swift */; };
 		93A91249DAFFE2CFF85A3D5A /* ExportableThrowData.swift in Sources */ = {isa = PBXBuildFile; fileRef = AAAD5BE8F1006A01C11FAE43 /* ExportableThrowData.swift */; };
 		93C7F2C9320FA9274C41D4D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C4B6CB85DF7A58937801EB2 /* Assets.xcassets */; };
 		93D65063B14C1A3394A8FA93 /* CornStarzUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763A4795B772C9EA8947653E /* CornStarzUITests.swift */; };
@@ -65,6 +68,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		01E6CBB7412465806ECE8712 /* TrajectorySceneView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrajectorySceneView.swift; sourceTree = "<group>"; };
 		0690F86AFD9AB3E3F64A7353 /* ThrowAnalyzerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrowAnalyzerTests.swift; sourceTree = "<group>"; };
 		09325C75A9E4ED5592E76C07 /* CalibrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationView.swift; sourceTree = "<group>"; };
 		139E1BB1DD22455312E9050D /* TrajectoryCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrajectoryCalculatorTests.swift; sourceTree = "<group>"; };
@@ -84,6 +88,8 @@
 		4D485FCA8BC189718DBCB0C2 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
 		501D9BC383C386074AF1084A /* ThrowData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrowData.swift; sourceTree = "<group>"; };
 		52AA5C8709B18D193D9329C1 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
+		53BAC2F650DC88ED1450A721 /* TrajectoryPlaygroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrajectoryPlaygroundView.swift; sourceTree = "<group>"; };
+		64EC29A7AC939F282720ED2C /* TrajectoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrajectoryViewModel.swift; sourceTree = "<group>"; };
 		6DD2C4DCE202D617BEF8834D /* SensorPlaygroundView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SensorPlaygroundView.swift; sourceTree = "<group>"; };
 		719BE46AAD4A6F563173E467 /* ScoringRules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoringRules.swift; sourceTree = "<group>"; };
 		763A4795B772C9EA8947653E /* CornStarzUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornStarzUITests.swift; sourceTree = "<group>"; };
@@ -96,8 +102,8 @@
 		A973014DCAE067CECF05C69C /* ScoringRulesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoringRulesTests.swift; sourceTree = "<group>"; };
 		AAAD5BE8F1006A01C11FAE43 /* ExportableThrowData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExportableThrowData.swift; sourceTree = "<group>"; };
 		ADE44C499DA29D0B083D7F51 /* CornStarzApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornStarzApp.swift; sourceTree = "<group>"; };
-		B499A203BBB7970DF62F508F /* CornStarzUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CornStarzUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		BCCE9E860FB89E48E54665E2 /* CornStarzTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CornStarzTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		B499A203BBB7970DF62F508F /* CornStarzUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CornStarzUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCCE9E860FB89E48E54665E2 /* CornStarzTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CornStarzTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE249E469B2B535FE4A5B9E1 /* TargetPlacementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetPlacementView.swift; sourceTree = "<group>"; };
 		C61E5EEE75D1C5B13EAEE497 /* ProjectileEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectileEntity.swift; sourceTree = "<group>"; };
 		CB5C6C74EBC714FECCBBD6E4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
@@ -105,7 +111,7 @@
 		DB05894780EBCBBB16B1F80F /* CornStarz.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CornStarz.entitlements; sourceTree = "<group>"; };
 		DE41E4EE8D6E5ED7B96CBDD5 /* ARGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARGameView.swift; sourceTree = "<group>"; };
 		F1CCD560542CB9AC7352BF52 /* TrajectoryCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrajectoryCalculator.swift; sourceTree = "<group>"; };
-		F2FE52C2DADA0CDE33F0DCEE /* CornStarz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CornStarz.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		F2FE52C2DADA0CDE33F0DCEE /* CornStarz.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = CornStarz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA1D081777763DA7E33747DB /* MotionCaptureService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionCaptureService.swift; sourceTree = "<group>"; };
 		FF39D2ABC9313807A4771E83 /* ScoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -188,6 +194,7 @@
 				4B753FDA31B14DF541FC0EE8 /* GameViewModel.swift */,
 				26C355E644102C397C3949F4 /* MotionViewModel.swift */,
 				FF39D2ABC9313807A4771E83 /* ScoreViewModel.swift */,
+				64EC29A7AC939F282720ED2C /* TrajectoryViewModel.swift */,
 			);
 			path = ViewModels;
 			sourceTree = "<group>";
@@ -232,6 +239,8 @@
 				6DD2C4DCE202D617BEF8834D /* SensorPlaygroundView.swift */,
 				CB5C6C74EBC714FECCBBD6E4 /* SettingsView.swift */,
 				BE249E469B2B535FE4A5B9E1 /* TargetPlacementView.swift */,
+				53BAC2F650DC88ED1450A721 /* TrajectoryPlaygroundView.swift */,
+				01E6CBB7412465806ECE8712 /* TrajectorySceneView.swift */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -320,9 +329,10 @@
 			isa = PBXProject;
 			attributes = {
 				BuildIndependentTargetsInParallel = YES;
-				LastUpgradeCheck = 2630;
+				LastUpgradeCheck = 1600;
 				TargetAttributes = {
 					151B239B4806BD22FBE9085E = {
+						DevelopmentTeam = "";
 						ProvisioningStyle = Automatic;
 					};
 					390D3BB4402DA6D6256E0272 = {
@@ -403,6 +413,9 @@
 				BFDF2F3E0CDC6461567A7FB3 /* ThrowData.swift in Sources */,
 				27D138791FE7C809644B9083 /* ThrowResult.swift in Sources */,
 				F22103294F8BD56807C3509B /* TrajectoryCalculator.swift in Sources */,
+				90E59A52907D4623DECF4C90 /* TrajectoryPlaygroundView.swift in Sources */,
+				7DB5E43B3028A51CEFA10F5D /* TrajectorySceneView.swift in Sources */,
+				88EB8FD5687F9082DEF4F2B1 /* TrajectoryViewModel.swift in Sources */,
 				A054834CA792ABC25D705298 /* Vector3Extensions.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -449,7 +462,6 @@
 				CODE_SIGN_ENTITLEMENTS = CornStarz/CornStarz.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B33NK99DJU;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = CornStarz/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -502,7 +514,6 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -524,7 +535,6 @@
 				ONLY_ACTIVE_ARCH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.9;
@@ -618,7 +628,6 @@
 				DEVELOPMENT_TEAM = "";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -633,7 +642,6 @@
 				MTL_FAST_MATH = YES;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SDKROOT = iphoneos;
-				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
 				SWIFT_VERSION = 5.9;
@@ -648,7 +656,6 @@
 				CODE_SIGN_ENTITLEMENTS = CornStarz/CornStarz.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = B33NK99DJU;
 				GENERATE_INFOPLIST_FILE = NO;
 				INFOPLIST_FILE = CornStarz/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (

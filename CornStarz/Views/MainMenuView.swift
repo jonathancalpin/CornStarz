@@ -43,6 +43,11 @@ struct MainMenuView: View {
                         Label("Sensor Playground", systemImage: "waveform")
                             .font(.body)
                     }
+
+                    NavigationLink(destination: TrajectoryPlaygroundView()) {
+                        Label("Trajectory Lab", systemImage: "arrow.up.right")
+                            .font(.body)
+                    }
                     #endif
 
                     NavigationLink(destination: SettingsView()) {
