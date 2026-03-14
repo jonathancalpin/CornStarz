@@ -22,7 +22,7 @@ struct MainMenuView: View {
                             showGame = true
                         } label: {
                             HStack {
-                                Image(systemName: mode == .cornhole ? "target" : "horseshoe")
+                                Image(systemName: mode == .cornhole ? "target" : "circle.circle")
                                 Text(mode.rawValue.capitalized)
                             }
                             .font(.title3)
@@ -37,9 +37,18 @@ struct MainMenuView: View {
 
                 Spacer()
 
-                NavigationLink(destination: SettingsView()) {
-                    Label("Settings", systemImage: "gear")
-                        .font(.body)
+                VStack(spacing: 12) {
+                    #if DEBUG
+                    NavigationLink(destination: SensorPlaygroundView()) {
+                        Label("Sensor Playground", systemImage: "waveform")
+                            .font(.body)
+                    }
+                    #endif
+
+                    NavigationLink(destination: SettingsView()) {
+                        Label("Settings", systemImage: "gear")
+                            .font(.body)
+                    }
                 }
             }
             .padding(.top, 80)
