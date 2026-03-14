@@ -5,6 +5,7 @@ struct CalibrationView: View {
     @StateObject private var motionService = MotionCaptureService()
     @State private var isCalibrating = false
     @State private var calibrationComplete = false
+    @State private var showARGame = false
     @Environment(\.dismiss) private var dismiss
 
     var body: some View {
@@ -30,7 +31,7 @@ struct CalibrationView: View {
                     .foregroundStyle(.green)
 
                 Button("Start Game") {
-                    // Navigate to target placement
+                    showARGame = true
                 }
                 .buttonStyle(.borderedProminent)
                 .controlSize(.large)
@@ -56,5 +57,8 @@ struct CalibrationView: View {
             .foregroundStyle(.secondary)
         }
         .padding()
+        .fullScreenCover(isPresented: $showARGame) {
+            TargetPlacementView(gameMode: gameMode)
+        }
     }
 }
