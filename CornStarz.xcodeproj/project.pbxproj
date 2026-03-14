@@ -1,0 +1,710 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 77;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		01051DC4617F96D54D29AF48 /* GameViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4B753FDA31B14DF541FC0EE8 /* GameViewModel.swift */; };
+		03915E4BAD6768BF4121B223 /* PhysicsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = 93B883E4492BC4CD588A5786 /* PhysicsConstants.swift */; };
+		1A8AB2F46B26537A5A8B93BB /* MotionCaptureService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA1D081777763DA7E33747DB /* MotionCaptureService.swift */; };
+		1E642ACE4D8AB486344C5485 /* GameHUDView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 13AB980BFA546DF2C4EBFDC8 /* GameHUDView.swift */; };
+		21DE376A9ECACF280C73FB1D /* ThrowAnalyzer.swift in Sources */ = {isa = PBXBuildFile; fileRef = A1FC1439B66EAE355BF64C67 /* ThrowAnalyzer.swift */; };
+		27D138791FE7C809644B9083 /* ThrowResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = DA6CB88D190B85E729B0C766 /* ThrowResult.swift */; };
+		2AFBE3D9EACE5714F5842147 /* GameMode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4097413EEEF5C5BC1262D588 /* GameMode.swift */; };
+		3221D8F0187AADBCC3309D19 /* HapticsService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 183553E468D38A8727C19D36 /* HapticsService.swift */; };
+		389868878A2B6C0477B147F0 /* ARGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE41E4EE8D6E5ED7B96CBDD5 /* ARGameView.swift */; };
+		39BDA5FF8492EC63DD759BD6 /* ScoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF39D2ABC9313807A4771E83 /* ScoreViewModel.swift */; };
+		49F662A178425441ACB506BF /* CalibrationView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 09325C75A9E4ED5592E76C07 /* CalibrationView.swift */; };
+		4E4BB189B190A253CB908CBE /* ARSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C2DA6059731677EADB7E206 /* ARSessionManager.swift */; };
+		58E7477AEEC9CD4FEE7F7231 /* MainMenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 52AA5C8709B18D193D9329C1 /* MainMenuView.swift */; };
+		5C84B19AD2D86B6054D179EF /* CornholeBoardEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 377E04E264FABEC4538A4461 /* CornholeBoardEntity.swift */; };
+		6619B7C53F9B4B50A1BF539F /* AppCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3A9868BED7CA681886FBD7EF /* AppCoordinator.swift */; };
+		66A2D8AC405A8AB321D5B920 /* ProjectileEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = C61E5EEE75D1C5B13EAEE497 /* ProjectileEntity.swift */; };
+		7B152D06427356B9FF66DB22 /* TrajectoryCalculatorTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 139E1BB1DD22455312E9050D /* TrajectoryCalculatorTests.swift */; };
+		88E649CA4132DCC4C7D9AABF /* ScoringRules.swift in Sources */ = {isa = PBXBuildFile; fileRef = 719BE46AAD4A6F563173E467 /* ScoringRules.swift */; };
+		93C7F2C9320FA9274C41D4D7 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8C4B6CB85DF7A58937801EB2 /* Assets.xcassets */; };
+		93D65063B14C1A3394A8FA93 /* CornStarzUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763A4795B772C9EA8947653E /* CornStarzUITests.swift */; };
+		9A94DB017733FFE1094E771F /* HorseshoePitEntity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 96C3375681BC4A7989B6A00F /* HorseshoePitEntity.swift */; };
+		9C8605624A71FD587880F655 /* AudioService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8CBDA4F49B1545ED9773FF96 /* AudioService.swift */; };
+		9E09F01149D89DDCE3208BE3 /* ResultsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8124E879890EA5F213380E68 /* ResultsView.swift */; };
+		9E56B5F50B0B15643D16405D /* TargetPlacementManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 284A3DA480B50C1F97DFFFCA /* TargetPlacementManager.swift */; };
+		A054834CA792ABC25D705298 /* Vector3Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 256F4E2C97E79EBC7639054B /* Vector3Extensions.swift */; };
+		A33148BC47D51B2D3CD1460E /* GameState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4D485FCA8BC189718DBCB0C2 /* GameState.swift */; };
+		AA1D613605318E89C782561C /* ScoringRulesTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A973014DCAE067CECF05C69C /* ScoringRulesTests.swift */; };
+		B9D3BE5E82AFCD9726F82499 /* MotionDataBuffer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 309348992860227BCACCD9BB /* MotionDataBuffer.swift */; };
+		BDCB4FCA79FCCD9C752EB619 /* MotionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 26C355E644102C397C3949F4 /* MotionViewModel.swift */; };
+		BFDF2F3E0CDC6461567A7FB3 /* ThrowData.swift in Sources */ = {isa = PBXBuildFile; fileRef = 501D9BC383C386074AF1084A /* ThrowData.swift */; };
+		BFF972BD9C0D13F4B36C7738 /* ThrowAnalyzerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0690F86AFD9AB3E3F64A7353 /* ThrowAnalyzerTests.swift */; };
+		C374348B4A03BFE6100C3462 /* CollisionHandler.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2C3C714146329619F7CDD680 /* CollisionHandler.swift */; };
+		E64EF151896739B68657EE53 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = CB5C6C74EBC714FECCBBD6E4 /* SettingsView.swift */; };
+		F22103294F8BD56807C3509B /* TrajectoryCalculator.swift in Sources */ = {isa = PBXBuildFile; fileRef = F1CCD560542CB9AC7352BF52 /* TrajectoryCalculator.swift */; };
+		FA72ED2E2BEB5304F6818C80 /* CornStarzApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = ADE44C499DA29D0B083D7F51 /* CornStarzApp.swift */; };
+		FC9E18E22B9430728800EEE9 /* TargetPlacementView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE249E469B2B535FE4A5B9E1 /* TargetPlacementView.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		052A45DF1D59E9ADB54F576B /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA7237751AEBA9DEAA8511FD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 151B239B4806BD22FBE9085E;
+			remoteInfo = CornStarz;
+		};
+		A7FB2A20DA550385EEC47155 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = BA7237751AEBA9DEAA8511FD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 151B239B4806BD22FBE9085E;
+			remoteInfo = CornStarz;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		0690F86AFD9AB3E3F64A7353 /* ThrowAnalyzerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrowAnalyzerTests.swift; sourceTree = "<group>"; };
+		09325C75A9E4ED5592E76C07 /* CalibrationView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalibrationView.swift; sourceTree = "<group>"; };
+		139E1BB1DD22455312E9050D /* TrajectoryCalculatorTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrajectoryCalculatorTests.swift; sourceTree = "<group>"; };
+		13AB980BFA546DF2C4EBFDC8 /* GameHUDView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameHUDView.swift; sourceTree = "<group>"; };
+		183553E468D38A8727C19D36 /* HapticsService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HapticsService.swift; sourceTree = "<group>"; };
+		2301DFC9777BCA72D4208618 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		256F4E2C97E79EBC7639054B /* Vector3Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Vector3Extensions.swift; sourceTree = "<group>"; };
+		26C355E644102C397C3949F4 /* MotionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionViewModel.swift; sourceTree = "<group>"; };
+		284A3DA480B50C1F97DFFFCA /* TargetPlacementManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetPlacementManager.swift; sourceTree = "<group>"; };
+		2C3C714146329619F7CDD680 /* CollisionHandler.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CollisionHandler.swift; sourceTree = "<group>"; };
+		309348992860227BCACCD9BB /* MotionDataBuffer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionDataBuffer.swift; sourceTree = "<group>"; };
+		377E04E264FABEC4538A4461 /* CornholeBoardEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornholeBoardEntity.swift; sourceTree = "<group>"; };
+		3A9868BED7CA681886FBD7EF /* AppCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppCoordinator.swift; sourceTree = "<group>"; };
+		3C2DA6059731677EADB7E206 /* ARSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARSessionManager.swift; sourceTree = "<group>"; };
+		4097413EEEF5C5BC1262D588 /* GameMode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameMode.swift; sourceTree = "<group>"; };
+		4B753FDA31B14DF541FC0EE8 /* GameViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewModel.swift; sourceTree = "<group>"; };
+		4D485FCA8BC189718DBCB0C2 /* GameState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameState.swift; sourceTree = "<group>"; };
+		501D9BC383C386074AF1084A /* ThrowData.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrowData.swift; sourceTree = "<group>"; };
+		52AA5C8709B18D193D9329C1 /* MainMenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainMenuView.swift; sourceTree = "<group>"; };
+		719BE46AAD4A6F563173E467 /* ScoringRules.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoringRules.swift; sourceTree = "<group>"; };
+		763A4795B772C9EA8947653E /* CornStarzUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornStarzUITests.swift; sourceTree = "<group>"; };
+		8124E879890EA5F213380E68 /* ResultsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultsView.swift; sourceTree = "<group>"; };
+		8C4B6CB85DF7A58937801EB2 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8CBDA4F49B1545ED9773FF96 /* AudioService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AudioService.swift; sourceTree = "<group>"; };
+		93B883E4492BC4CD588A5786 /* PhysicsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicsConstants.swift; sourceTree = "<group>"; };
+		96C3375681BC4A7989B6A00F /* HorseshoePitEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorseshoePitEntity.swift; sourceTree = "<group>"; };
+		A1FC1439B66EAE355BF64C67 /* ThrowAnalyzer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrowAnalyzer.swift; sourceTree = "<group>"; };
+		A973014DCAE067CECF05C69C /* ScoringRulesTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoringRulesTests.swift; sourceTree = "<group>"; };
+		ADE44C499DA29D0B083D7F51 /* CornStarzApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CornStarzApp.swift; sourceTree = "<group>"; };
+		B499A203BBB7970DF62F508F /* CornStarzUITests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CornStarzUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BCCE9E860FB89E48E54665E2 /* CornStarzTests.xctest */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.cfbundle; path = CornStarzTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		BE249E469B2B535FE4A5B9E1 /* TargetPlacementView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TargetPlacementView.swift; sourceTree = "<group>"; };
+		C61E5EEE75D1C5B13EAEE497 /* ProjectileEntity.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProjectileEntity.swift; sourceTree = "<group>"; };
+		CB5C6C74EBC714FECCBBD6E4 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		DA6CB88D190B85E729B0C766 /* ThrowResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ThrowResult.swift; sourceTree = "<group>"; };
+		DB05894780EBCBBB16B1F80F /* CornStarz.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = CornStarz.entitlements; sourceTree = "<group>"; };
+		DE41E4EE8D6E5ED7B96CBDD5 /* ARGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARGameView.swift; sourceTree = "<group>"; };
+		F1CCD560542CB9AC7352BF52 /* TrajectoryCalculator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TrajectoryCalculator.swift; sourceTree = "<group>"; };
+		F2FE52C2DADA0CDE33F0DCEE /* CornStarz.app */ = {isa = PBXFileReference; includeInIndex = 0; lastKnownFileType = wrapper.application; path = CornStarz.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA1D081777763DA7E33747DB /* MotionCaptureService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MotionCaptureService.swift; sourceTree = "<group>"; };
+		FF39D2ABC9313807A4771E83 /* ScoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewModel.swift; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXGroup section */
+		2F3D28466283845ACBC44F4C /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				8CBDA4F49B1545ED9773FF96 /* AudioService.swift */,
+				183553E468D38A8727C19D36 /* HapticsService.swift */,
+				FA1D081777763DA7E33747DB /* MotionCaptureService.swift */,
+				A1FC1439B66EAE355BF64C67 /* ThrowAnalyzer.swift */,
+				F1CCD560542CB9AC7352BF52 /* TrajectoryCalculator.swift */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		45D46D67DDE2FA8C9A386851 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				8C4B6CB85DF7A58937801EB2 /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		5C35AC492C584AB1983E24AD /* AR */ = {
+			isa = PBXGroup;
+			children = (
+				DE41E4EE8D6E5ED7B96CBDD5 /* ARGameView.swift */,
+				3C2DA6059731677EADB7E206 /* ARSessionManager.swift */,
+				2C3C714146329619F7CDD680 /* CollisionHandler.swift */,
+				377E04E264FABEC4538A4461 /* CornholeBoardEntity.swift */,
+				96C3375681BC4A7989B6A00F /* HorseshoePitEntity.swift */,
+				C61E5EEE75D1C5B13EAEE497 /* ProjectileEntity.swift */,
+				284A3DA480B50C1F97DFFFCA /* TargetPlacementManager.swift */,
+			);
+			path = AR;
+			sourceTree = "<group>";
+		};
+		6D5D9237A28D26B1D4B979D4 /* CornStarzUITests */ = {
+			isa = PBXGroup;
+			children = (
+				763A4795B772C9EA8947653E /* CornStarzUITests.swift */,
+			);
+			path = CornStarzUITests;
+			sourceTree = "<group>";
+		};
+		8E2795D2C23B483B06A0767A /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				309348992860227BCACCD9BB /* MotionDataBuffer.swift */,
+				93B883E4492BC4CD588A5786 /* PhysicsConstants.swift */,
+				256F4E2C97E79EBC7639054B /* Vector3Extensions.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		8FC129EC0F91EC5FD51D3777 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				3A9868BED7CA681886FBD7EF /* AppCoordinator.swift */,
+				ADE44C499DA29D0B083D7F51 /* CornStarzApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		93EA16D6DA311E8E66F9057D = {
+			isa = PBXGroup;
+			children = (
+				C4EE40BE859A5D87868F5FEE /* CornStarz */,
+				FF091EEEB5FFE530B8CA9AD3 /* CornStarzTests */,
+				6D5D9237A28D26B1D4B979D4 /* CornStarzUITests */,
+				DF4A5CD355E5DE8E14440991 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		A192C461F4300CA2B55C821D /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				4B753FDA31B14DF541FC0EE8 /* GameViewModel.swift */,
+				26C355E644102C397C3949F4 /* MotionViewModel.swift */,
+				FF39D2ABC9313807A4771E83 /* ScoreViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
+		BA27DB3B79969BBAA139B32F /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				4097413EEEF5C5BC1262D588 /* GameMode.swift */,
+				4D485FCA8BC189718DBCB0C2 /* GameState.swift */,
+				719BE46AAD4A6F563173E467 /* ScoringRules.swift */,
+				501D9BC383C386074AF1084A /* ThrowData.swift */,
+				DA6CB88D190B85E729B0C766 /* ThrowResult.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		C4EE40BE859A5D87868F5FEE /* CornStarz */ = {
+			isa = PBXGroup;
+			children = (
+				DB05894780EBCBBB16B1F80F /* CornStarz.entitlements */,
+				2301DFC9777BCA72D4208618 /* Info.plist */,
+				8FC129EC0F91EC5FD51D3777 /* App */,
+				5C35AC492C584AB1983E24AD /* AR */,
+				BA27DB3B79969BBAA139B32F /* Models */,
+				45D46D67DDE2FA8C9A386851 /* Resources */,
+				2F3D28466283845ACBC44F4C /* Services */,
+				8E2795D2C23B483B06A0767A /* Utilities */,
+				A192C461F4300CA2B55C821D /* ViewModels */,
+				D27F5203C5A031C67744038F /* Views */,
+			);
+			path = CornStarz;
+			sourceTree = "<group>";
+		};
+		D27F5203C5A031C67744038F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				09325C75A9E4ED5592E76C07 /* CalibrationView.swift */,
+				13AB980BFA546DF2C4EBFDC8 /* GameHUDView.swift */,
+				52AA5C8709B18D193D9329C1 /* MainMenuView.swift */,
+				8124E879890EA5F213380E68 /* ResultsView.swift */,
+				CB5C6C74EBC714FECCBBD6E4 /* SettingsView.swift */,
+				BE249E469B2B535FE4A5B9E1 /* TargetPlacementView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		DF4A5CD355E5DE8E14440991 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				F2FE52C2DADA0CDE33F0DCEE /* CornStarz.app */,
+				BCCE9E860FB89E48E54665E2 /* CornStarzTests.xctest */,
+				B499A203BBB7970DF62F508F /* CornStarzUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FF091EEEB5FFE530B8CA9AD3 /* CornStarzTests */ = {
+			isa = PBXGroup;
+			children = (
+				A973014DCAE067CECF05C69C /* ScoringRulesTests.swift */,
+				0690F86AFD9AB3E3F64A7353 /* ThrowAnalyzerTests.swift */,
+				139E1BB1DD22455312E9050D /* TrajectoryCalculatorTests.swift */,
+			);
+			path = CornStarzTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		151B239B4806BD22FBE9085E /* CornStarz */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4AB4A1652C6E97B5F071A99A /* Build configuration list for PBXNativeTarget "CornStarz" */;
+			buildPhases = (
+				6C17EAD50EA54EB944F8B782 /* Sources */,
+				3EC91ECB160C0FFB6EBA322C /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = CornStarz;
+			packageProductDependencies = (
+			);
+			productName = CornStarz;
+			productReference = F2FE52C2DADA0CDE33F0DCEE /* CornStarz.app */;
+			productType = "com.apple.product-type.application";
+		};
+		390D3BB4402DA6D6256E0272 /* CornStarzUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 15FDBA89C669EC5A8EE6758A /* Build configuration list for PBXNativeTarget "CornStarzUITests" */;
+			buildPhases = (
+				C1891D33FA18AEA7CBF7944F /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				7D061B90108428F36CDF83FF /* PBXTargetDependency */,
+			);
+			name = CornStarzUITests;
+			packageProductDependencies = (
+			);
+			productName = CornStarzUITests;
+			productReference = B499A203BBB7970DF62F508F /* CornStarzUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+		C9BAD4E62B3276F4BE48626D /* CornStarzTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 65AD87CE2A051B53E79E12EE /* Build configuration list for PBXNativeTarget "CornStarzTests" */;
+			buildPhases = (
+				6CB2D7217BC3208E6D9E0E83 /* Sources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				023E3A48872FD932D718C0BB /* PBXTargetDependency */,
+			);
+			name = CornStarzTests;
+			packageProductDependencies = (
+			);
+			productName = CornStarzTests;
+			productReference = BCCE9E860FB89E48E54665E2 /* CornStarzTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		BA7237751AEBA9DEAA8511FD /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = YES;
+				LastUpgradeCheck = 1600;
+				TargetAttributes = {
+					151B239B4806BD22FBE9085E = {
+						DevelopmentTeam = "";
+						ProvisioningStyle = Automatic;
+					};
+					390D3BB4402DA6D6256E0272 = {
+						DevelopmentTeam = "";
+						TestTargetID = 151B239B4806BD22FBE9085E;
+					};
+					C9BAD4E62B3276F4BE48626D = {
+						DevelopmentTeam = "";
+					};
+				};
+			};
+			buildConfigurationList = 4C5EBD28F02E9056DE1A4C51 /* Build configuration list for PBXProject "CornStarz" */;
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				Base,
+				en,
+			);
+			mainGroup = 93EA16D6DA311E8E66F9057D;
+			minimizedProjectReferenceProxies = 1;
+			preferredProjectObjectVersion = 77;
+			productRefGroup = DF4A5CD355E5DE8E14440991 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				151B239B4806BD22FBE9085E /* CornStarz */,
+				C9BAD4E62B3276F4BE48626D /* CornStarzTests */,
+				390D3BB4402DA6D6256E0272 /* CornStarzUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		3EC91ECB160C0FFB6EBA322C /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93C7F2C9320FA9274C41D4D7 /* Assets.xcassets in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		6C17EAD50EA54EB944F8B782 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				389868878A2B6C0477B147F0 /* ARGameView.swift in Sources */,
+				4E4BB189B190A253CB908CBE /* ARSessionManager.swift in Sources */,
+				6619B7C53F9B4B50A1BF539F /* AppCoordinator.swift in Sources */,
+				9C8605624A71FD587880F655 /* AudioService.swift in Sources */,
+				49F662A178425441ACB506BF /* CalibrationView.swift in Sources */,
+				C374348B4A03BFE6100C3462 /* CollisionHandler.swift in Sources */,
+				FA72ED2E2BEB5304F6818C80 /* CornStarzApp.swift in Sources */,
+				5C84B19AD2D86B6054D179EF /* CornholeBoardEntity.swift in Sources */,
+				1E642ACE4D8AB486344C5485 /* GameHUDView.swift in Sources */,
+				2AFBE3D9EACE5714F5842147 /* GameMode.swift in Sources */,
+				A33148BC47D51B2D3CD1460E /* GameState.swift in Sources */,
+				01051DC4617F96D54D29AF48 /* GameViewModel.swift in Sources */,
+				3221D8F0187AADBCC3309D19 /* HapticsService.swift in Sources */,
+				9A94DB017733FFE1094E771F /* HorseshoePitEntity.swift in Sources */,
+				58E7477AEEC9CD4FEE7F7231 /* MainMenuView.swift in Sources */,
+				1A8AB2F46B26537A5A8B93BB /* MotionCaptureService.swift in Sources */,
+				B9D3BE5E82AFCD9726F82499 /* MotionDataBuffer.swift in Sources */,
+				BDCB4FCA79FCCD9C752EB619 /* MotionViewModel.swift in Sources */,
+				03915E4BAD6768BF4121B223 /* PhysicsConstants.swift in Sources */,
+				66A2D8AC405A8AB321D5B920 /* ProjectileEntity.swift in Sources */,
+				9E09F01149D89DDCE3208BE3 /* ResultsView.swift in Sources */,
+				39BDA5FF8492EC63DD759BD6 /* ScoreViewModel.swift in Sources */,
+				88E649CA4132DCC4C7D9AABF /* ScoringRules.swift in Sources */,
+				E64EF151896739B68657EE53 /* SettingsView.swift in Sources */,
+				9E56B5F50B0B15643D16405D /* TargetPlacementManager.swift in Sources */,
+				FC9E18E22B9430728800EEE9 /* TargetPlacementView.swift in Sources */,
+				21DE376A9ECACF280C73FB1D /* ThrowAnalyzer.swift in Sources */,
+				BFDF2F3E0CDC6461567A7FB3 /* ThrowData.swift in Sources */,
+				27D138791FE7C809644B9083 /* ThrowResult.swift in Sources */,
+				F22103294F8BD56807C3509B /* TrajectoryCalculator.swift in Sources */,
+				A054834CA792ABC25D705298 /* Vector3Extensions.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		6CB2D7217BC3208E6D9E0E83 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA1D613605318E89C782561C /* ScoringRulesTests.swift in Sources */,
+				BFF972BD9C0D13F4B36C7738 /* ThrowAnalyzerTests.swift in Sources */,
+				7B152D06427356B9FF66DB22 /* TrajectoryCalculatorTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		C1891D33FA18AEA7CBF7944F /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				93D65063B14C1A3394A8FA93 /* CornStarzUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		023E3A48872FD932D718C0BB /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 151B239B4806BD22FBE9085E /* CornStarz */;
+			targetProxy = A7FB2A20DA550385EEC47155 /* PBXContainerItemProxy */;
+		};
+		7D061B90108428F36CDF83FF /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 151B239B4806BD22FBE9085E /* CornStarz */;
+			targetProxy = 052A45DF1D59E9ADB54F576B /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin XCBuildConfiguration section */
+		06BCD9CC608D50708DAA80FB /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CornStarz/CornStarz.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = CornStarz/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lnhenterprises.CornStarz;
+				SDKROOT = iphoneos;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+		2CE07D76D9AF1EF1CA5F2C52 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				DEVELOPMENT_TEAM = "";
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"$(inherited)",
+					"DEBUG=1",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Debug;
+		};
+		48D45A27FBF41CD2758929A3 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lnhenterprises.CornStarzUITests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CornStarz;
+			};
+			name = Release;
+		};
+		981E28D6D0A1F3954A51692C /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lnhenterprises.CornStarzTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CornStarz.app/CornStarz";
+			};
+			name = Debug;
+		};
+		C97212D77CA54F05B5ED610D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lnhenterprises.CornStarzUITests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = CornStarz;
+			};
+			name = Debug;
+		};
+		CDB3B064C38981EA8316365E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_QUOTED_INCLUDE_IN_FRAMEWORK_HEADER = YES;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEVELOPMENT_TEAM = "";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
+				MARKETING_VERSION = 1.0.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				SWIFT_VERSION = 5.9;
+			};
+			name = Release;
+		};
+		E37FC811460A4C8D4BCFE172 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = CornStarz/CornStarz.entitlements;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_STYLE = Automatic;
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = CornStarz/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lnhenterprises.CornStarz;
+				SDKROOT = iphoneos;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		E902BF1E11BCF38FC90D6FCC /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = com.lnhenterprises.CornStarzTests;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/CornStarz.app/CornStarz";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		15FDBA89C669EC5A8EE6758A /* Build configuration list for PBXNativeTarget "CornStarzUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				C97212D77CA54F05B5ED610D /* Debug */,
+				48D45A27FBF41CD2758929A3 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		4AB4A1652C6E97B5F071A99A /* Build configuration list for PBXNativeTarget "CornStarz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E37FC811460A4C8D4BCFE172 /* Debug */,
+				06BCD9CC608D50708DAA80FB /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		4C5EBD28F02E9056DE1A4C51 /* Build configuration list for PBXProject "CornStarz" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				2CE07D76D9AF1EF1CA5F2C52 /* Debug */,
+				CDB3B064C38981EA8316365E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+		65AD87CE2A051B53E79E12EE /* Build configuration list for PBXNativeTarget "CornStarzTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				981E28D6D0A1F3954A51692C /* Debug */,
+				E902BF1E11BCF38FC90D6FCC /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Debug;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = BA7237751AEBA9DEAA8511FD /* Project object */;
+}
