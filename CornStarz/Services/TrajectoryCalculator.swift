@@ -10,7 +10,7 @@ class TrajectoryCalculator {
 
     struct Config {
         var gravity: Double = 9.81
-        var dragCoefficient: Double = 0.05
+        var dragCoefficient: Double = 0.071
         var timeStep: Double = 0.016
         var maxFlightTime: Double = 3.0
     }

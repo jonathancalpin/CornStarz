@@ -18,16 +18,16 @@ struct ThrowAttempt: Identifiable {
 
 class TrajectoryViewModel: ObservableObject {
     // Tuning parameters (bound to sliders)
-    @Published var speedScaleFactor: Double = 2.2 {
+    @Published var speedScaleFactor: Double = 3.0 {
         didSet { throwAnalyzer.config.speedScaleFactor = speedScaleFactor }
     }
-    @Published var angleOffsetDegrees: Double = -20.0 {
+    @Published var angleOffsetDegrees: Double = -21.0 {
         didSet { throwAnalyzer.config.angleOffsetDegrees = angleOffsetDegrees }
     }
-    @Published var dragCoefficient: Double = 0.05 {
+    @Published var dragCoefficient: Double = 0.071 {
         didSet { trajectoryCalculator.config.dragCoefficient = dragCoefficient }
     }
-    @Published var targetDistance: Double = 12.0
+    @Published var targetDistance: Double = 8.2
 
     // State
     @Published var attempts: [ThrowAttempt] = []

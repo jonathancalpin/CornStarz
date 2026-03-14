@@ -18,11 +18,11 @@ struct ReleaseVector {
 class ThrowAnalyzer {
 
     struct Config {
-        var speedScaleFactor: Double = 2.2
+        var speedScaleFactor: Double = 3.0
         var maxSpeed: Double = 14.0
         var minAngleDegrees: Double = 15.0      // floor so gentle throws still arc
         var maxAngleDegrees: Double = 55.0       // cap to prevent moonshots
-        var angleOffsetDegrees: Double = -20.0   // compensate for phone pitch at release
+        var angleOffsetDegrees: Double = -21.0   // compensate for phone pitch at release
         var minThrowAcceleration: Double = 1.5
         var releaseDetectionThreshold: Double = 0.3
         var spinScaleFactor: Double = 1.0
